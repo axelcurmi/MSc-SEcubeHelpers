@@ -77,7 +77,7 @@ void L1::L1CryptoUpdate(uint32_t sessId, uint16_t flags, uint16_t data1Len, uint
 	uint8_t* _data1Len = (uint8_t*)&data1Len;
 	uint8_t* _data2Len = (uint8_t*)&data2Len;
 
-	/* versione originale, notare come si usano 4 byte anche per tipi che in realtà sono uint16_t, probabilmente errore del programmatore */
+	/* versione originale, notare come si usano 4 byte anche per tipi che in realtï¿½ sono uint16_t, probabilmente errore del programmatore */
 	/*this->base.FillSessionBuffer(	_sessId,
 									L1Response::Offset::DATA + L1Crypto::UpdateRequestOffset::SID,
 									4);
@@ -229,12 +229,14 @@ void L1::L1Digest(size_t dataInLen, uint8_t* dataIn, size_t* dataOutLen, uint8_t
 
 	uint32_t encSessId = 0;
 
+	printf("1.\n");
 	try {
-		L1CryptoInit(algorithm, 0, 0, &encSessId);
+		L1CryptoInit(algorithm, 0, 2000, &encSessId);
 	}
 	catch (L1Exception& e) {
 		throw digestExc;
 	}
+	printf("2.\n");
 
 	if(dataOutLen != NULL)
 		*dataOutLen = 0;

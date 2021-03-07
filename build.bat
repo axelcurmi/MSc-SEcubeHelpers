@@ -16,6 +16,8 @@ g++ -O3 -g3 -fPIC -Wall -c -o obj\L1.o SEcubeSources\L1\L1.cpp
 g++ -O0 -g3 -fPIC -Wall -c -o obj\L0_hello.o L0_hello.cpp
 g++ -O0 -g3 -fPIC -Wall -c -o obj\L1_addkey.o L1_addkey.cpp
 g++ -O0 -g3 -fPIC -Wall -c -o obj\L1_getkeys.o L1_getkeys.cpp
+g++ -O0 -g3 -fPIC -Wall -c -o obj\digest_example.o digest_example.cpp
+g++ -O0 -g3 -fPIC -Wall -c -o obj\encrypt_decrypt_example.o encrypt_decrypt_example.cpp
 
 g++ -o bin/L0_hello.exe ^
     obj\L0.o ^
@@ -54,3 +56,33 @@ g++ -o bin/L1_getkeys.exe ^
     obj\L1_security.o ^
     obj\L1.o ^
     obj\L1_getkeys.o
+
+g++ -o bin/digest_example.exe ^
+    obj\L0.o ^
+    obj\L0_commodities.o ^
+    obj\L0_communication.o ^
+    obj\L0_provision.o ^
+    obj\L0_base.o ^
+    obj\aes256.o ^
+    obj\sha256.o ^
+    obj\pbkdf2.o ^
+    obj\L1_base.o ^
+    obj\L1_login_logout.o ^
+    obj\L1_security.o ^
+    obj\L1.o ^
+    obj\digest_example.o
+
+g++ -o bin/encrypt_decrypt_example.exe ^
+    obj\L0.o ^
+    obj\L0_commodities.o ^
+    obj\L0_communication.o ^
+    obj\L0_provision.o ^
+    obj\L0_base.o ^
+    obj\aes256.o ^
+    obj\sha256.o ^
+    obj\pbkdf2.o ^
+    obj\L1_base.o ^
+    obj\L1_login_logout.o ^
+    obj\L1_security.o ^
+    obj\L1.o ^
+    obj\encrypt_decrypt_example.o
